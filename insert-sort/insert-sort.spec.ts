@@ -1,16 +1,16 @@
 import 'jest-sorted/index'
-import { quickSort } from './quick-sort'
+import { insertSort } from './insert-sort'
 
-describe('================ QUICK SORT ================', () => {
+describe('================ INSERT SORT ================', () => {
   test('1 elment array', () => {
     const arr = [1]
-    quickSort(arr)
+    insertSort(arr)
     expect(arr).toStrictEqual([1])
   })
 
   test('2 elements array', () => {
     const arr = [5, 4]
-    quickSort(arr)
+    insertSort(arr)
     expect(arr).toStrictEqual([4, 5])
   })
 
@@ -23,11 +23,17 @@ describe('================ QUICK SORT ================', () => {
       [697, 417, 570, 175, 166, 57, 57, 303],
     ]
 
-    const expectedArrays = inputs.map((arr) => [...arr].sort((a, b) => a - b))
+    const expectedArrays = [
+      [154, 218, 436, 478, 501, 558, 579, 593, 615, 631],
+      [167, 242, 326, 541, 580],
+      [41, 144, 177, 232, 239, 450, 478],
+      [8, 55, 134, 244, 280, 346, 405, 599, 614, 666],
+      [57, 57, 166, 175, 303, 417, 570, 697],
+    ]
 
-    inputs.forEach((arr) => quickSort(arr))
+    inputs.forEach((arr) => insertSort(arr))
 
     inputs.forEach((arr) => expect(arr).toBeSorted())
-    inputs.forEach((arr, i) => expect(arr).toStrictEqual(expectedArrays[i]))
+    expect(inputs).toStrictEqual(expectedArrays)
   })
 })

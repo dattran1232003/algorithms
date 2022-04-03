@@ -14,6 +14,20 @@ describe('================ QUICK SORT ================', () => {
     expect(arr).toStrictEqual([4, 5])
   })
 
+  test('sorted array (same direction)', () => {
+    const arr = [1, 2, 3]
+    quickSort(arr)
+
+    expect(arr).toStrictEqual([1, 2, 3])
+  })
+
+  test('sorted array (reverse direction)', () => {
+    const arr = [3, 2, 1]
+    quickSort(arr)
+
+    expect(arr).toStrictEqual([1, 2, 3])
+  })
+
   test('random cases', () => {
     const inputs: number[][] = [
       [154, 501, 593, 436, 579, 615, 218, 478, 558, 631],
